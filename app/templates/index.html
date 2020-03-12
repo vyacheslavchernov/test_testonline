@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Тестируемый: {{ user.username }}!</h1>
+    <h2>Тестируемый: {{ current_user.username }}!</h1>
     <h2>Отдел : {{ otdel }}!</h1>
     {% for test in tests %}
         {% for test in test.questions %}
