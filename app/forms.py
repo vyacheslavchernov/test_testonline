@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, ValidationError
+from app.models import User
 
 otdels = [
         {'label': 'ОПиР', 'value': 'ОПиР'},
@@ -22,3 +23,12 @@ class LoginForm(FlaskForm):
                     choices=[(otdel['label'], otdel['value']) for otdel in otdels])
     remember_me = BooleanField('Запомнить меня')
     submit = SubmitField('Продолжить')
+
+class RegistrationForm(FlaskForm):
+    username = StringField('ФИО Тестируемого', validators=[DataRequired()])
+    submit = SubmitField('Зарегистрироваться')
+
+    def validate_username(self, username):
+        user = User.query.filter_by(username=username.data).first()
+        if user is not None:
+            raise ValidationError('Выбирите другое имя.')

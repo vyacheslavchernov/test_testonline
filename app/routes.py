@@ -6,6 +6,8 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 from flask import request
 from werkzeug.urls import url_parse
+from app import db
+from app.forms import RegistrationForm
 
 import pandas as pd
 import random
@@ -85,3 +87,17 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Congratulations, you are now a registered user!')
+        return redirect(url_for('login'))
+    return render_template('register.html', title='Register', form=form)
