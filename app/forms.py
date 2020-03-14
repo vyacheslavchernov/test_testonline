@@ -18,14 +18,13 @@ otdels = [
 
 class LoginForm(FlaskForm):
     username = StringField('ФИО Тестируемого', validators=[DataRequired()])
-    # password = PasswordField('Отдел', validators=[DataRequired()])
-    otdel = SelectField('Выбирите отдел', default = '', validators=[DataRequired()],
-                    choices=[(otdel['label'], otdel['value']) for otdel in otdels])
     remember_me = BooleanField('Запомнить меня')
     submit = SubmitField('Продолжить')
 
 class RegistrationForm(FlaskForm):
     username = StringField('ФИО Тестируемого', validators=[DataRequired()])
+    otdel = SelectField('Выбирите отдел', default = '', validators=[DataRequired()],
+                    choices=[(otdel['label'], otdel['value']) for otdel in otdels])
     submit = SubmitField('Зарегистрироваться')
 
     def validate_username(self, username):
