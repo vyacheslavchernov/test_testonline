@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Тестируемый: {{ user.username }}!</h1>
-    <h2>Отдел : {{ otdel }}!</h1>
+    <h2>Тестируемый: {{ current_user.username }}!</h1>
+    <h2>Отдел : {{ otdel }}!</h2>
+    <p>{{ tests }}</p>
     {% for test in tests %}
         {% for test in test.questions %}
         <span style="white-space: pre-line"><p>{{test}}</p></span>
         {% endfor %}
             {% for answer in test.answers %}
-            <p><input name={{test}} type="radio" value={{answer}}>{{answer}}</p>
+            <p><input name={{test}} type="radio" id={{answer}} value={{answer}}>{{answer}}</p>
             {% endfor %}<br>
      {% endfor %}
-     <p><input type="submit" value="Отправить ответы"></p>
+     <p>{{ form.submit() }}</p>
 {% endblock %}

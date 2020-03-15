@@ -31,3 +31,6 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError('Выбирите другое имя.')
+
+class IndexForm(FlaskForm):
+    submit = SubmitField('Отправить ответы')

@@ -9,8 +9,6 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     otdel = db.Column(db.String(64))
     date = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-    question = db.Column(db.String(500), unique=True)
-    user_answers = db.Column(db.Integer, unique=True)
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -28,11 +26,23 @@ class Questions(UserMixin, db.Model):
 class Answers(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     question_id = db.Column(db.Integer, db.ForeignKey('questions.id'))
-    answer = db.Column(db.String(64))
+    answer = db.Column(db.String(500))
     yes_no = db.Column(db.Integer)
 
     def __repr__(self):
-        return '<User {}>'.format(self.answer)
+        return '<Answer {}>'.format(self.answer)
+
+
+class TestAnswers(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(64))
+    question = db.Column(db.String(500))
+    answer = db.Column(db.String(500))
+    user_answer = db.Column(db.String(500))
+    result = db.Column(db.Integer)
+
+    def __repr__(self):
+        return '<TestAnswer {}>'.format(self.result)
 
 
 @login.user_loader
