@@ -10,6 +10,7 @@ from app.forms import RegistrationForm, IndexForm, LoginForm
 
 import pandas as pd
 import random
+import pickle
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -18,11 +19,11 @@ import random
 def index():
     user = User.query.filter_by(username=current_user.username).first()
     otdel = user.otdel
-    tests = TestAnswers.query.filter_by(username=current_user.username)
+    with open(current_user.username + '.pkl', 'rb') as f:
+        tests = pickle.load(f)
     form = IndexForm()
-    if form.validate_on_submit():
+    if request.method == 'POST':
         return redirect(url_for('test'))
-
     return render_template(
             'index.html', title='Home', tests=tests, otdel=otdel, form=form)
 
@@ -106,11 +107,13 @@ def register():
                 tests[num-1]['answers'] = answ
                 userdata[num-1]['answers'] = useransw
                 num += 1
-                testdata = TestAnswers(username=str(user),
+                testdata = TestAnswers(username=str(form.username.data),
                                        question=str(data.iloc[i]['question']),
                                        answer=str(useransw))
                 db.session.add(testdata)
                 db.session.commit()
+        with open(str(form.username.data) + '.pkl', 'wb') as f:
+            pickle.dump(tests, f)
         return redirect(url_for('login'))
     return render_template('register.html', title='Регистрация', form=form)
 
@@ -118,4 +121,5 @@ def register():
 @app.route('/test')
 @login_required
 def test():
-    return render_template('test.html', title='Итоги тестирования')
+    testdata = TestAnswers.query.filter_by(username=current_user.username).first()
+    return render_template('test.html', testdata=testdata, title='Итоги тестирования')

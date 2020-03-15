@@ -3,14 +3,15 @@
 {% block content %}
     <h2>Тестируемый: {{ current_user.username }}!</h1>
     <h2>Отдел : {{ otdel }}!</h2>
-    <p>{{ tests }}</p>
     {% for test in tests %}
         {% for test in test.questions %}
         <span style="white-space: pre-line"><p>{{test}}</p></span>
         {% endfor %}
             {% for answer in test.answers %}
-            <p><input name={{test}} type="radio" id={{answer}} value={{answer}}>{{answer}}</p>
+            <p><input type="radio" id={{answer}} value={{answer}}>{{answer}}</p>
             {% endfor %}<br>
      {% endfor %}
-     <p>{{ form.submit() }}</p>
+     <form method="post">
+     {{ form.submit }}
+     </form>
 {% endblock %}
