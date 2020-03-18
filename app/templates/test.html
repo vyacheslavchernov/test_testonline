@@ -2,8 +2,10 @@
 
 {% block content %}
     <h2>Тестируемый: {{ current_user.username }}!</h1>
-    <h2>Отдел : {{ otdel }}!</h1>
+    <h2>Отдел : {{ otdel }}!</h2>
     <p>Рейтинг ответов по темам:</p>
-    <span style="white-space: pre-line"><p>{{testdata}}</p></span>
-
+        {% for data in testdata %}
+        <p>{{data.question}}</p>
+        <p>{{data.result}}</p>
+        {% endfor %}<br>
 {% endblock %}

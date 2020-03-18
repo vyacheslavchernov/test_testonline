@@ -19,13 +19,14 @@ import pickle
 def index():
     user = User.query.filter_by(username=current_user.username).first()
     otdel = user.otdel
-    with open(current_user.username + '.pkl', 'rb') as f:
-        tests = pickle.load(f)
+    #with open(current_user.username + '.pkl', 'rb') as f:
+    #    tests = pickle.load(f)
+    #tests = TestAnswers.query.filter_by(username=current_user.username).all()
     form = IndexForm()
     if request.method == 'POST':
         return redirect(url_for('test'))
     return render_template(
-            'index.html', title='Home', tests=tests, otdel=otdel, form=form)
+            'index.html', title='Home', otdel=otdel, form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -121,5 +122,10 @@ def register():
 @app.route('/test')
 @login_required
 def test():
-    testdata = TestAnswers.query.filter_by(username=current_user.username).first()
-    return render_template('test.html', testdata=testdata, title='Итоги тестирования')
+    testdata = TestAnswers.query.filter_by(username=current_user.username).all()
+    user = User.query.filter_by(username=current_user.username).first()
+    otdel = user.otdel
+    #for data in testdata:
+    #    data.result = data.answer == data.ser_answer
+    #    TestAnswers(result=int(data.answer == data.ser_answer))
+    return render_template('test.html', testdata=testdata, otdel=otdel, title='Итоги тестирования')
