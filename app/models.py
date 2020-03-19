@@ -9,6 +9,8 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     otdel = db.Column(db.String(64))
     date = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    seed = db.Column(db.Integer)
+    answers = db.Column(db.String(64))
 
     def __repr__(self):
         return '<User {}>'.format(self.username)

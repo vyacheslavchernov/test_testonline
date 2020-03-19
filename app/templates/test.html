@@ -5,7 +5,6 @@
     <h2>Отдел : {{ otdel }}!</h2>
     <p>Рейтинг ответов по темам:</p>
         {% for data in testdata %}
-        <p>{{data.question}}</p>
-        <p>{{data.result}}</p>
+        <p>{{data.answers}}</p>
         {% endfor %}<br>
 {% endblock %}
