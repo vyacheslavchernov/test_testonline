@@ -35,18 +35,6 @@ class Answers(UserMixin, db.Model):
         return '<Answer {}>'.format(self.answer)
 
 
-class TestAnswers(UserMixin, db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64))
-    question = db.Column(db.String(500))
-    answer = db.Column(db.String(500))
-    user_answer = db.Column(db.String(500))
-    result = db.Column(db.Integer)
-
-    def __repr__(self):
-        return '<TestAnswer {}>'.format(self.result)
-
-
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))

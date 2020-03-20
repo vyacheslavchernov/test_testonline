@@ -4,7 +4,11 @@
     <h2>Тестируемый: {{ current_user.username }}!</h1>
     <h2>Отдел : {{ otdel }}!</h2>
     <p>Рейтинг ответов по темам:</p>
-        {% for data in testdata %}
-        <p>{{data.answers}}</p>
-        {% endfor %}<br>
+    <table>
+    <tr><td>Тема</td><td>Число вопросов</td><td>Число правильных ответов</td><td>% правильных ответов</td></tr>
+    <tr><td>python</td><td>4</td><td>36⅔</td><td>23–23,5</td></tr>
+    <tr><td>ds</td><td>4,5</td><td>37⅓</td><td>23,5</td></tr>
+    <tr><td>c#</td><td>5</td><td>38</td><td>24</td></tr>
+    <tr><td>SQL</td><td>5,5</td><td>38⅔</td><td>24,5</td></tr>
+    </table>
 {% endblock %}
