@@ -9,6 +9,7 @@ from app import db
 from app.forms import RegistrationForm, IndexForm, LoginForm
 import time
 from app.testmaker import make_test
+from app.makeresult import make_result
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -18,7 +19,7 @@ def index():
     user = User.query.filter_by(username=current_user.username).first()
     otdel = user.otdel
     seed = user.seed
-    _, tests = make_test(user, otdel, seed)
+    _, tests, _ = make_test(user, otdel, seed)
     form = IndexForm()
     if request.method == 'POST':
         return redirect(url_for('test'))
@@ -71,6 +72,20 @@ def register():
 @login_required
 def test():
     user = User.query.filter_by(username=current_user.username).first()
-    testdata, _ = make_test(user.username, user.otdel, user.seed)
+    if len(request.form) != 16:
+        flash('Необходимо ответить на все вопросы!')
+        return redirect(url_for('index'))
+    userdata, _, dep_type = make_test(user.username, user.otdel, user.seed)
+    dep_type, result, result_part, pos_result, all_result, part_pos_result = make_result(
+        request.form, userdata, dep_type, user.otdel)
+
     return render_template(
-            'test.html', user=current_user.username, otdel=user.otdel, testdata=testdata, title='Итоги тестирования')
+            'test.html', user=current_user.username,
+            otdel=user.otdel,
+            dep_type=dep_type,
+            result=result,
+            result_part=result_part,
+            pos_result=pos_result,
+            all_result=all_result,
+            part_pos_result=part_pos_result,
+            title='Итоги тестирования')
