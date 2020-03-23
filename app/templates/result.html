@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block content %}
+<h2>Тестируемый: {{ current_user.username }}!</h1>
+    <h2>Отдел : {{ otdel }}!</h2>
+    <p>Рейтинг ответов по темам:</p>
+    <table>
+        <tr>
+            <td>Тема</td>
+            <td>Число вопросов</td>
+            <td>Число правильных ответов</td>
+            <td>% правильных ответов</td>
+        </tr>
+        <tr>
+            <td>python</td>
+            <td>{{ dep_type.python }}</td>
+            <td>{{ result.python }}</td>
+            <td>{{ result_part.python }}</td>
+        </tr>
+        <tr>
+            <td>ds</td>
+            <td>{{ dep_type.ds }}</td>
+            <td>{{ result.ds }}</td>
+            <td>{{ result_part.ds }}</td>
+        </tr>
+        <tr>
+            <td>c#</td>
+            <td>{{ dep_type.c_ }}</td>
+            <td>{{ result.c_ }}</td>
+            <td>{{ result_part.c_ }}</td>
+        </tr>
+        <tr>
+            <td>SQL</td>
+            <td>{{ dep_type.sql }}</td>
+            <td>{{ result.sql }}</td>
+            <td>{{ result_part.sql }}</td>
+        </tr>
+    </table>
+    <p>Итоговое количество правильных ответов {{ pos_result }} из {{ all_result }} или {{ part_pos_result }}%.</p>
+    {% endblock %}
