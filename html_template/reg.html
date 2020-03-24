@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>SberTest - Registration</title>
+
+    <meta name="theme-color" content="#2c9a40">
+
+
+    <link rel="stylesheet" href="style.css?ss">
+
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>    
+
+    <script>
+
+        $(document).ready(function(){
+            $(".input-customListElementContainer").click(function(){
+                $(".input-customList >").removeClass("active")
+                $(this).addClass("active")
+
+                $(this).children("input").prop('checked',true)     
+                
+            })
+        })
+
+    </script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <img src="src/img/sberlogo.png" alt="Sberbank" class="header-logo">
+            <hr class="header-hr">
+            <span class="header-label">тестирование кандидатов</span>
+        </div>
+
+        <form action="#" class="form form-logon">
+            <input type="text" name="username" class="input-text" placeholder="Фамилия Имя">
+
+            <br>
+            <br>
+            <br>
+
+            <div class="input-customList">
+                <div class="input-customListElementContainer active">
+                    <input type="radio" name="otdel" class="input-customListElementRadio">
+                    <span class="input-customListElementLabel">ОПиР</span>
+                </div>
+
+                <div class="input-customListElementContainer">
+                    <input type="radio" name="otdel" class="input-customListElementRadio">
+                    <span class="input-customListElementLabel">ОАКБ</span>
+                </div>
+
+                <div class="input-customListElementContainer">
+                    <input type="radio" name="otdel" class="input-customListElementRadio">
+                    <span class="input-customListElementLabel">ОАРБ</span>
+                </div>
+
+                <div class="input-customListElementContainer">
+                    <input type="radio" name="otdel" class="input-customListElementRadio">
+                    <span class="input-customListElementLabel">ОАРБ_c#</span>
+                </div>
+
+                <div class="input-customListElementContainer">
+                    <input type="radio" name="otdel" class="input-customListElementRadio">
+                    <span class="input-customListElementLabel">ОАОП</span>
+                </div>
+
+                <div class="input-customListElementContainer">
+                    <input type="radio" name="otdel" class="input-customListElementRadio">
+                    <span class="input-customListElementLabel">ОАОП_c#</span>
+                </div>
+
+                <div class="input-customListElementContainer">
+                    <input type="radio" name="otdel" class="input-customListElementRadio">
+                    <span class="input-customListElementLabel">ОАКБ_python</span>
+                </div>
+
+                <div class="input-customListElementContainer">
+                    <input type="radio" name="otdel" class="input-customListElementRadio">
+                    <span class="input-customListElementLabel">ОАОП_sql</span>
+                </div>
+
+                <div class="input-customListElementContainer">
+                    <input type="radio" name="otdel" class="input-customListElementRadio">
+                    <span class="input-customListElementLabel">ОАРБ_sql</span>
+                </div>
+                
+                
+            </div>
+          
+
+            <br>
+            <br>
+        
+            <input type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ" class="input-button">
+        </form>
+    </div>
+</body>
+</html>

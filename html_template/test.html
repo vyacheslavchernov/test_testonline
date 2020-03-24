@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>SberTest - Test</title>
+
+    <meta name="theme-color" content="#2c9a40">
+
+
+    <link rel="stylesheet" href="style.css?ss">
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <img src="src/img/sberlogo.png" alt="Sberbank" class="header-logo">
+            <hr class="header-hr">
+            <span class="header-label">тестирование кандидатов</span>
+        </div>
+
+        <form action="#" class="form form-test">
+            <div class="siema">
+                <div >
+                    <span class="small-font">1/15</span>
+                    <div class="test-question">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere dapibus elit, et tincidunt augue.
+                    </div>
+
+                    <div class="test-answers">
+                        <div class="test-answer">
+                            <input type="radio" name="q1">
+                            <span>Ответ 1</span>
+                        </div>
+                
+                        <div class="test-answer">
+                            <input type="radio" name="q1">
+                            <span>Ответ 2</span>
+                        </div>
+
+                        <div class="test-answer">
+                            <input type="radio" name="q1">
+                            <span>Ответ 3</span>
+                        </div>
+
+                        <div class="test-answer">
+                            <input type="radio" name="q1">
+                            <span>Ответ 4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="small-font">1/15</span>
+                    <div class="test-question">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere dapibus elit, et tincidunt augue.
+                    </div>
+
+                    <div class="test-answers">
+                        <div class="test-answer">
+                            <input type="radio" name="q2">
+                            <span>Ответ 1</span>
+                        </div>
+                
+                        <div class="test-answer">
+                            <input type="radio" name="q2">
+                            <span>Ответ 2</span>
+                        </div>
+
+                        <div class="test-answer">
+                            <input type="radio" name="q2">
+                            <span>Ответ 3</span>
+                        </div>
+
+                        <div class="test-answer">
+                            <input type="radio" name="q2">
+                            <span>Ответ 4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="small-font">1/15</span>
+                    <div class="test-question">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere dapibus elit, et tincidunt augue.
+                    </div>
+
+                    <div class="test-answers">
+                        <div class="test-answer">
+                            <input type="radio" name="q3">
+                            <span>Ответ 1</span>
+                        </div>
+                
+                        <div class="test-answer">
+                            <input type="radio" name="q3">
+                            <span>Ответ 2</span>
+                        </div>
+
+                        <div class="test-answer">
+                            <input type="radio" name="q3">
+                            <span>Ответ 3</span>
+                        </div>
+
+                        <div class="test-answer">
+                            <input type="radio" name="q3">
+                            <span>Ответ 4</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="small-font">1/15</span>
+                    <div class="test-question">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere dapibus elit, et tincidunt augue.
+                    </div>
+
+                    <div class="test-answers">
+                        <div class="test-answer">
+                            <input type="radio" name="q4">
+                            <span>Ответ 1</span>
+                        </div>
+                
+                        <div class="test-answer">
+                            <input type="radio" name="q4">
+                            <span>Ответ 2</span>
+                        </div>
+
+                        <div class="test-answer">
+                            <input type="radio" name="q4">
+                            <span>Ответ 3</span>
+                        </div>
+
+                        <div class="test-answer">
+                            <input type="radio" name="q4">
+                            <span>Ответ 4</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <input type="submit" value="ЗАКОНЧИТЬ ТЕСТИРОВАНИЕ" class="input-button">
+        </form>
+    </div>
+
+
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.min.js"
+			  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			  crossorigin="anonymous"></script>    
+    <script src="src/js/siema.min.js"></script>
+    <script>
+        const mySiema = new Siema({
+            selector: '.siema',
+            duration: 100,
+            easing: 'ease-out',
+            perPage: 1,
+            startIndex: 0,
+            draggable: true,
+            multipleDrag: true,
+            threshold: 20,
+            loop: false,
+            rtl: false,
+            onInit: () => {},
+            onChange: () => {},
+        });
+
+        $(document).ready(function(){
+            $(".test-answers input").click(function(){
+                mySiema.next()
+            })
+        })
+    </script>
+
+</body>
+</html>
