@@ -10,12 +10,14 @@ from app.forms import RegistrationForm, IndexForm, LoginForm
 import time
 from app.testmaker import make_test
 from app.makeresult import make_result
+from werkzeug.datastructures import ImmutableMultiDict
+import sqlite3
 
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
-def index():
+def index(): 
     user = User.query.filter_by(username=current_user.username).first()
     otdel = user.otdel
     seed = user.seed
@@ -35,9 +37,11 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None:
-            flash('Выбирите другое имя!')
+            flash('Нужно пройти регистрацию!')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
+        if user.answers:
+            return redirect(url_for('result'))
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
@@ -75,9 +79,18 @@ def test():
     if len(request.form) != 16:
         flash('Необходимо ответить на все вопросы!')
         return redirect(url_for('index'))
+    user_answers = request.form
+        
     userdata, _, dep_type = make_test(user.username, user.otdel, user.seed)
     dep_type, result, result_part, pos_result, all_result, part_pos_result = make_result(
-        request.form, userdata, dep_type, user.otdel)
+        user_answers, userdata, dep_type, user.otdel) 
+
+    ans = str(user_answers)
+    usr = current_user.username
+    conn = sqlite3.connect("app.db")
+    cursor = conn.cursor()
+    cursor.execute("UPDATE user SET answers = :ans  WHERE username = :usr", vars())
+    conn.commit()
 
     return render_template(
             'test.html', user=current_user.username,
@@ -88,4 +101,28 @@ def test():
             pos_result=pos_result,
             all_result=all_result,
             part_pos_result=part_pos_result,
+            answer=user.answers,
+            title='Итоги тестирования')
+
+
+@app.route('/result', methods=['GET', 'POST'])
+@login_required
+def result():
+    user = User.query.filter_by(username=current_user.username).first()
+    user_answers = eval(user.answers)
+        
+    userdata, _, dep_type = make_test(user.username, user.otdel, user.seed)
+    dep_type, result, result_part, pos_result, all_result, part_pos_result = make_result(
+        user_answers, userdata, dep_type, user.otdel) 
+
+    return render_template(
+            'test.html', user=current_user.username,
+            otdel=user.otdel,
+            dep_type=dep_type,
+            result=result,
+            result_part=result_part,
+            pos_result=pos_result,
+            all_result=all_result,
+            part_pos_result=part_pos_result,
+            answer=user.answers,
             title='Итоги тестирования')
