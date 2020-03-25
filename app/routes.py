@@ -81,9 +81,9 @@ def test():
         return redirect(url_for('index'))
     user_answers = request.form
         
-    userdata, _, dep_type = make_test(user.username, user.otdel, user.seed)
+    userdata, _, _ = make_test(user.username, user.otdel, user.seed)
     dep_type, result, result_part, pos_result, all_result, part_pos_result = make_result(
-        user_answers, userdata, dep_type, user.otdel) 
+        user_answers, userdata, user.otdel) 
 
     ans = str(user_answers)
     usr = current_user.username
@@ -113,7 +113,7 @@ def result():
         
     userdata, _, dep_type = make_test(user.username, user.otdel, user.seed)
     dep_type, result, result_part, pos_result, all_result, part_pos_result = make_result(
-        user_answers, userdata, dep_type, user.otdel) 
+        user_answers, userdata, user.otdel) 
 
     return render_template(
             'test.html', user=current_user.username,

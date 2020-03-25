@@ -18,7 +18,7 @@ def make_result(user_answers, userdata, dep_type, otdel='ОПиР'):
         'ОАРБ_sql': {'python': 0, 'ds': 0, 'c_': 0, 'sql': 15},
     }
 
-    user_answers_data = [i for i in user_answers.keys()][:-1]
+    user_answers_data = [i for i in user_answers.values()][:-1]
     result = {otdel: {'python': 0, 'ds': 0, 'c_': 0, 'sql': 0}}
     result_part = {otdel: {'python': 0, 'ds': 0, 'c_': 0, 'sql': 0}}
     for num, data in enumerate(userdata):
