@@ -16,130 +16,145 @@
 <body>
     <div class="wrapper">
         <div class="header">
-            <img src="src/img/sberlogo.png" alt="Sberbank" class="header-logo">
+            <img src="src/img/logo.png" alt="Sberbank" class="header-logo">
             <hr class="header-hr">
             <span class="header-label">тестирование кандидатов</span>
         </div>
 
         <form action="#" class="form form-test">
             <div class="siema">
-                <div >
-                    <span class="small-font">1/15</span>
+                <div>
+                    <span class="small-font" style="margin-left: 5px;">1/15</span>
                     <div class="test-question">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere dapibus elit, et tincidunt augue.
+                        Что выведет следующий фрагмент кода (python 3.X) <br>
+                        x = 4.5 <br>
+                        y = 2 <br>
+                        print(x//y)
                     </div>
+                    <hr>
 
                     <div class="test-answers">
-                        <div class="test-answer">
-                            <input type="radio" name="q1">
-                            <span>Ответ 1</span>
-                        </div>
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>0.5</span>
+                        </label><br>
                 
-                        <div class="test-answer">
-                            <input type="radio" name="q1">
-                            <span>Ответ 2</span>
-                        </div>
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>2</span>
+                        </label><br>
 
-                        <div class="test-answer">
-                            <input type="radio" name="q1">
-                            <span>Ответ 3</span>
-                        </div>
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>2.5</span>
+                        </label><br>
 
-                        <div class="test-answer">
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>2.0</span>
+                        </label><br>
+                    </div>
+                </div>
+
+
+                <div>
+                    <span class="small-font" style="margin-left: 5px;">1/15</span>
+                    <div class="test-question">
+                        Что такое внешний ключ (Foreign key)?
+                    </div>
+                    <hr>
+
+                    <div class="test-answers">
+                        <label class="test-answer">  
                             <input type="radio" name="q1">
-                            <span>Ответ 4</span>
-                        </div>
+                            <div class="radiocheckmark"></div>
+                            <span>Внешний ключ поддерживает ссылочную целостность, обеспечивая связь между данными в двух таблицах. Внешний ключ в дочерней таблице ссылается на первичный ключ в родительской таблице.</span>
+                        </label><br>
+                
+                        <label class="test-answer">  
+                            <input type="radio" name="q1">
+                            <div class="radiocheckmark"></div>
+                            <span>Внешний ключ поддерживает ссылочную целостность, обеспечивая связь между данными в двух таблицах. Внешний ключ в дочерней таблице не может ссылаться на первичный ключ в родительской таблице.</span>
+                        </label><br>
+
+                        <label class="test-answer">  
+                            <input type="radio" name="q1">
+                            <div class="radiocheckmark"></div>
+                            <span>Внешний ключ это то же самое, что и первичный ключ.</span>
+                        </label><br>
                     </div>
                 </div>
 
                 <div>
-                    <span class="small-font">1/15</span>
+                    <span class="small-font" style="margin-left: 5px;">1/15</span>
                     <div class="test-question">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere dapibus elit, et tincidunt augue.
+                        В чем разница между условиями WHERE и HAVING, если в запросе не используется GROUP BY?
                     </div>
+                    <hr>
 
                     <div class="test-answers">
-                        <div class="test-answer">
+                        <label class="test-answer">  
                             <input type="radio" name="q2">
-                            <span>Ответ 1</span>
-                        </div>
+                            <div class="radiocheckmark"></div>
+                            <span>Условия WHERE и HAVING эквивалентны.</span>
+                        </label><br>
                 
-                        <div class="test-answer">
+                        <label class="test-answer">  
                             <input type="radio" name="q2">
-                            <span>Ответ 2</span>
-                        </div>
+                            <div class="radiocheckmark"></div>
+                            <span>Условие HAVING используется для фильтрации значений из группы, а условие WHERE используется для фильтрации записей из результата до срабатывания какой-либо группировки.</span>
+                        </label><br>
 
-                        <div class="test-answer">
+                        <label class="test-answer">  
                             <input type="radio" name="q2">
-                            <span>Ответ 3</span>
-                        </div>
-
-                        <div class="test-answer">
-                            <input type="radio" name="q2">
-                            <span>Ответ 4</span>
-                        </div>
+                            <div class="radiocheckmark"></div>
+                            <span>Условие HAVING используется для фильтрации значений из группы, а условие WHERE используется для фильтрации записей из результата после срабатывания какой-либо группировки.</span>
+                        </label><br>
                     </div>
                 </div>
 
                 <div>
-                    <span class="small-font">1/15</span>
+                    <span class="small-font" style="margin-left: 5px;">1/15</span>
                     <div class="test-question">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere dapibus elit, et tincidunt augue.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vulputate ex sodales enim tristique convallis. Nunc cursus euismod pharetra. Nullam tempor sem et dui facilisis ullamcorper. Sed suscipit ex eget enim tristique lacinia. Aenean ullamcorper lacus eget ornare finibus. Maecenas vel elementum elit. Nam viverra felis sit amet nisi maximus, vitae consectetur purus tempor. Maecenas imperdiet pellentesque lacus ut fermentum. Pellentesque id euismod est. Praesent sollicitudin eu sem non viverra.
                     </div>
+                    <hr>
 
                     <div class="test-answers">
-                        <div class="test-answer">
-                            <input type="radio" name="q3">
-                            <span>Ответ 1</span>
-                        </div>
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>Внешний ключ поддерживает ссылочную целостность, обеспечивая связь между данными в двух таблицах. Внешний ключ в дочерней таблице ссылается на первичный ключ в родительской таблице.</span>
+                        </label><br>
                 
-                        <div class="test-answer">
-                            <input type="radio" name="q3">
-                            <span>Ответ 2</span>
-                        </div>
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>Внешний ключ поддерживает ссылочную целостность, обеспечивая связь между данными в двух таблицах. Внешний ключ в дочерней таблице ссылается на первичный ключ в родительской таблице.</span>
+                        </label><br>
 
-                        <div class="test-answer">
-                            <input type="radio" name="q3">
-                            <span>Ответ 3</span>
-                        </div>
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>Внешний ключ поддерживает ссылочную целостность, обеспечивая связь между данными в двух таблицах. Внешний ключ в дочерней таблице ссылается на первичный ключ в родительской таблице.</span>
+                        </label><br>
 
-                        <div class="test-answer">
-                            <input type="radio" name="q3">
-                            <span>Ответ 4</span>
-                        </div>
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>Внешний ключ поддерживает ссылочную целостность, обеспечивая связь между данными в двух таблицах. Внешний ключ в дочерней таблице ссылается на первичный ключ в родительской таблице.</span>
+                        </label><br>
                     </div>
                 </div>
 
-                <div>
-                    <span class="small-font">1/15</span>
-                    <div class="test-question">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus posuere dapibus elit, et tincidunt augue.
-                    </div>
-
-                    <div class="test-answers">
-                        <div class="test-answer">
-                            <input type="radio" name="q4">
-                            <span>Ответ 1</span>
-                        </div>
                 
-                        <div class="test-answer">
-                            <input type="radio" name="q4">
-                            <span>Ответ 2</span>
-                        </div>
-
-                        <div class="test-answer">
-                            <input type="radio" name="q4">
-                            <span>Ответ 3</span>
-                        </div>
-
-                        <div class="test-answer">
-                            <input type="radio" name="q4">
-                            <span>Ответ 4</span>
-                        </div>
-                    </div>
-                </div>
             </div>
 
+            <hr>
             <br>
             <br>
 
@@ -169,11 +184,11 @@
             onChange: () => {},
         });
 
-        $(document).ready(function(){
+        /*$(document).ready(function(){
             $(".test-answers input").click(function(){
                 mySiema.next()
             })
-        })
+        })*/
     </script>
 
 </body>

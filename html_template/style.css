@@ -2,6 +2,8 @@
     * {
         padding: 0;
         margin: 0;
+
+        -webkit-appearance: none;
     }
 
     .wrapper {
@@ -63,9 +65,9 @@
 
     .form-test {
         width: 100%;
-        margin-top: 10%;
+        margin-top: 5%;
         padding-bottom: 5%;
-        background-color: #eee;
+       /* background-color: #eee;*/
     }
 
     /* Form elements*/
@@ -157,7 +159,19 @@
         opacity: 0.3;
     }
 
+    .content-block hr {
+        margin-top: 16px;
+        margin-bottom: 16px;
+
+        border-color:#2c9a40 ;
+        border-style: solid;
+        
+        opacity: 0.3;
+    }
+
     .form .input-button {
+        
+
         width: 100%;
         height: 48px;
 
@@ -260,23 +274,98 @@
 
     /* TEST */
     .siema {
-        width: 100%;
-        height: 300px;
+        width: 100%;      
         
     } 
 
+    .siema hr{
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    .form-test hr {
+        width: 80%;
+        margin-left: 10%;
+    }
+
     .test-question {
-        margin-left: 58px;
-        width: 60%;
+        margin-left: 10%;
+        width: 80%;
+        height: 150px;
+
+        overflow-y: scroll;
 
         font-family: 'Courier New', Courier, monospace;
+        text-align: justify;
+        font-size: small;
+        font-weight: 600;
     }
+
 
     .test-answers {
         margin-top: 16px;
-        margin-left: 58px;
-        width: 60%;
+        margin-left: 10%;
+        width: 80%;
+        height: 150px;
+
+        overflow-y: scroll;
 
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: small;
+    }
+
+    .form-test .input-button {
+        position: fixed;
+        bottom: 28px;
+        left: 10%;
+
+        width: 80%;
+    }
+
+    .test-answer {
+        display: block;
+        width: 100%;
+        text-align: justify;
+    }
+
+    .test-answer input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .test-answer .radiocheckmark {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-color: #eee;
+        border-radius: 5px;
+    }
+
+    .test-answer input:checked ~ .radiocheckmark{
+        background-color: #2c9a40;
+    }
+
+    .content-block
+    {
+        width: 80%;
+        margin-top: 5%;
+        margin-left: 10%;
+
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .content-block table {
+        width: 100%;
+    }
+
+    .content-block table .title {
+        width: 30%;
+    }
+
+    .content-block table .result {
+        width: 69%;
     }
 }
