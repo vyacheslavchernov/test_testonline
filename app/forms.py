@@ -24,7 +24,7 @@ class LoginForm(FlaskForm):
 
 class RegistrationForm(FlaskForm):
     username = StringField('ФИО Тестируемого', validators=[DataRequired()])
-    otdel = RadioField('Выбирите отдел', default = '', validators=[DataRequired()],
+    otdel = RadioField('Выберите отдел', default = '', validators=[DataRequired()],
                     choices=[(otdel['label'], otdel['value']) for otdel in otdels])
     #otdel = SelectField('Выбирите отдел', default = '', validators=[DataRequired()],
     #                choices=[(otdel['label'], otdel['value']) for otdel in otdels])

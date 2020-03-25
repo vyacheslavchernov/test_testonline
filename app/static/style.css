@@ -368,12 +368,4 @@
     .content-block table .result {
         width: 69%;
     }
-
-    .errors {
-        margin-left: 15%;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: crimson;
-        font-weight: 200;
-        text-align: center;
-    }
 }

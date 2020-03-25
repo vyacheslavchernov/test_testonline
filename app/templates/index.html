@@ -1,10 +1,116 @@
-{% extends "base.html" %} {% block content %}
-<h2>Тестируемый: {{ current_user.username }}!</h1>
-    <h2>Отдел : {{ otdel }}!</h2>
-    <form action="{{ url_for('test') }}" , method="post">
-        {% for test in tests %} {% for question in test.questions %}
-        <span style="white-space: pre-line"><p>{{question}}</p></span> {% endfor %} {% for answer in test.answers %}
-        <p><input type="radio" name={{test.questions[0][7:10]}} value={{answer.id}}>{{answer.value}}</p>
-        {% endfor %}<br> {% endfor %} {{ form.submit }}
+{% extends "base.html" %} 
+
+{% block content %}
+    <form action="{{ url_for('test') }}" method="post" class="form form-test">
+        <div class="siema">
+
+            {% for test in tests %} 
+                <div>             
+                
+                    <div class="test-question">
+                        {% for question in test.questions %}
+                            <p>{{question}}</p>
+                        {% endfor %} 
+                    </div>            
+                    <hr>
+
+                    <div class="test-answers">
+                        {% for answer in test.answers %}
+                            <label class="test-answer">  
+                                <input type="radio" name={{test.questions[0][7:10]}} value={{answer.id}}>
+                                <div class="radiocheckmark"></div>
+                                <span>{{answer.value}}</span>
+                            </label><br>
+                        {% endfor %}
+                    </div>        
+                </div>
+            {% endfor %} 
+
+        </div>
+
+
+        <hr>
+        <br>
+        <br>
+
+        {{ form.submit(value="ЗАКОНЧИТЬ ТЕСТИРОВАНИЕ", class="input-button") }}
     </form>
-    {% endblock %}
+
+
+    <script	src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>      
+    <script src="{{ url_for('static', filename='siema.min.js') }}"></script>
+    <script>
+        const mySiema = new Siema({
+            selector: '.siema',
+            duration: 100,
+            easing: 'ease-out',
+            perPage: 1,
+            startIndex: 0,
+            draggable: true,
+            multipleDrag: true,
+            threshold: 20,
+            loop: false,
+            rtl: false,
+            onInit: () => {},
+            onChange: () => {},
+        });
+
+        /*$(document).ready(function(){
+            $(".test-answers input").click(function(){
+                mySiema.next()
+            })
+        })*/
+    </script>
+    
+{% endblock %}
+
+
+<!--
+    <form action="#" class="form form-test">
+            <div class="siema">
+                <div>
+                    <span class="small-font" style="margin-left: 5px;">1/15</span>
+                    <div class="test-question">
+                        Что выведет следующий фрагмент кода (python 3.X) <br>
+                        x = 4.5 <br>
+                        y = 2 <br>
+                        print(x//y)
+                    </div>
+                    <hr>
+
+                    <div class="test-answers">
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>0.5</span>
+                        </label><br>
+                
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>2</span>
+                        </label><br>
+
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>2.5</span>
+                        </label><br>
+
+                        <label class="test-answer">  
+                            <input type="radio" name="q4">
+                            <div class="radiocheckmark"></div>
+                            <span>2.0</span>
+                        </label><br>
+                    </div>
+                </div>             
+
+            </div>
+
+            <hr>
+            <br>
+            <br>
+
+            <input type="submit" value="ЗАКОНЧИТЬ ТЕСТИРОВАНИЕ" class="input-button">
+        </form>
+-->

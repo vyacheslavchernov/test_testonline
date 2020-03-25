@@ -30,3 +30,5 @@ include/
 include/*
 
 env/
+app.db
+app.db

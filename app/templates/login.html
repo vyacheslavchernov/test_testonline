@@ -1,18 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Войти</h2>
-    <form action="" method="post">
+    <form action="" method="post" class="form form-logon">
         {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
-            {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.submit() }}</p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+
+        {{ form.username(class="input-text", placeholder="Фамилия Имя") }}<br>
+
+        {% for error in form.username.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        <br>
+
+        <label class="input-checkbox-container">
+            {{ form.remember_me() }}
+            <span class="checkmark"></span>
+            <span class="input-label small-font">Запомнить меня</span> 
+        </label>
+
+        <hr>
+        <span class="small-font" style="display: block; text-align: justify; width: 100%;">Для прохождения тестирования необходимо <a href="{{ url_for('register')}}">зарегистрироваться</a></span>
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <p>{{ form.submit(value="НАЧАТЬ ТЕСТИРОВАНИЕ", class="input-button") }}</p>
+
+    
+
+    
     </form>
-    <p>Зарегистрироваться на тестирование <a href="{{ url_for('register')}}">здесь.</a></p>
-{% endblock %}
+    {% endblock %}
