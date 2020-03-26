@@ -23,6 +23,10 @@
             <img src="{{ url_for('static', filename='logo.png') }}" alt="TestSolution" class="header-logo">
             <hr class="header-hr">
             <span class="header-label">тестирование кандидатов</span>
+
+            {% if current_user.is_anonymous is sameas false %}
+                <a href="{{ url_for('logout') }}"><img src="{{ url_for('static', filename='logout.png') }}" alt="Logout" class="header-logout"></a>
+            {% endif %}
         </div>
 
         {% with messages = get_flashed_messages() %}
