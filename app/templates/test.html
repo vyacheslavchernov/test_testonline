@@ -9,22 +9,22 @@
     <table>
         <tr>
             <td class="title">Python</td>
-            <td class="result">{{ dep_type.python }}/{{ result.python }} ({{ result_part.python }}%)</td>
+            <td class="result">{{ result.python }}/{{ dep_type.python }} ({{ result_part.python }}%)</td>
         </tr>
 
         <tr>
             <td class="title">DS</td>
-            <td class="result">{{ dep_type.ds }}/{{ result.ds }} ({{ result_part.ds }}%)</td>
+            <td class="result">{{ result.ds }}/{{ dep_type.ds }} ({{ result_part.ds }}%)</td>
         </tr>
 
         <tr>
             <td class="title">C#</td>
-            <td class="result">{{ dep_type.c_ }}/{{ result.c_ }} ({{ result_part.c_ }}%)</td>
+            <td class="result">{{ result.c_ }}/{{ dep_type.c_ }} ({{ result_part.c_ }}%)</td>
         </tr>
 
         <tr>
             <td class="title">SQL</td>
-            <td class="result">{{ dep_type.sql }}/{{ result.sql }} ({{ result_part.sql }}%)</td>
+            <td class="result">{{ result.sql }}/{{ dep_type.sql }} ({{ result_part.sql }}%)</td>
         </tr>
     </table>
 
@@ -37,38 +37,3 @@
 </div>
 
 {% endblock %}
-
-
-<!--
-    <div class="content-block">
-            Результаты теста
-            <hr>
-
-            <table>
-                <tr>
-                    <td class="title">Python</td>
-                    <td class="result">1/10 (10%)</td>
-                </tr>
-
-                <tr>
-                    <td class="title">DS</td>
-                    <td class="result">1/10 (10%)</td>
-                </tr>
-
-                <tr>
-                    <td class="title">C#</td>
-                    <td class="result">1/10 (10%)</td>
-                </tr>
-
-                <tr>
-                    <td class="title">SQL</td>
-                    <td class="result">1/10 (10%)</td>
-                </tr>
-            </table>
-
-            <hr>
-            <br>
-
-            <span class="small-font" style="display: block; text-align: justify; width: 100%;">Итоговое количество правильных ответов:<br>6 из 15 или <span style="color:#2c9a40;">40%</span></span> 
-        </div>
--->
