@@ -1,0 +1,11 @@
+﻿Результаты теста {{ current_user.username }} в {{ otdel }}).
+
+Python {{ result.python }} из {{ dep_type.python }} или {{ result_part.python }}%
+
+DS {{ result.ds }} из {{ dep_type.ds }} или {{ result_part.ds }}%
+
+C# {{ result.c_ }} из {{ dep_type.c_ }} или {{ result_part.c_ }}%
+
+SQL {{ result.sql }} из {{ dep_type.sql }} или {{ result_part.sql }}%
+
+Итоговое количество правильных ответов:{{ pos_result }} из {{ all_result }} или {{ part_pos_result }}%.

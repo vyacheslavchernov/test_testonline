@@ -12,6 +12,8 @@ from app.testmaker import make_test
 from app.makeresult import make_result
 from werkzeug.datastructures import ImmutableMultiDict
 import sqlite3
+from app.email import send_yandex
+from datetime import datetime
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -91,6 +93,22 @@ def test():
     cursor = conn.cursor()
     cursor.execute("UPDATE user SET answers = :ans  WHERE username = :usr", vars())
     conn.commit()
+    
+    subject = 'Результаты теста от '+str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    email_body=render_template(
+                    'email/email.txt', user=current_user.username,
+                        otdel=user.otdel,
+                        dep_type=dep_type,
+                        result=result,
+                        result_part=result_part,
+                        pos_result=pos_result,
+                        all_result=all_result,
+                        part_pos_result=part_pos_result,
+                        answer=user.answers)
+    try:
+        send_yandex(subject, email_body)
+    except:
+        pass
 
     return render_template(
             'test.html', user=current_user.username,
