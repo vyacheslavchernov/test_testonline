@@ -337,6 +337,7 @@
         height: 150px;
 
         overflow-y: scroll;
+        
 
         font-family: 'Courier New', Courier, monospace;
         text-align: justify;
@@ -462,9 +463,11 @@
         scrollbar-width: none;
 
         font-family: 'Courier New', Courier, monospace;
-        text-align: justify;
+        text-align: left;
         font-size: small;
         font-weight: 600;
+
+        
     }
 
 

@@ -7,7 +7,8 @@
 
             <div class="test-question">
                 {% for question in test.questions %}
-                <span style="white-space: pre"><p>{{question}}</p></span> {% endfor %}
+                    <p style="white-space: pre-wrap;">{{question}}</p> 
+                {% endfor %}
             </div>
             <hr>
 
