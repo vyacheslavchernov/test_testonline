@@ -168,11 +168,16 @@
         cursor: pointer;
 
         transition: 0.2s;
-    }
+    } 
 
     .form .input-button:hover {
         background-color: #217230; 
     }
+
+    .form .input-button:disabled {
+        background-color: #ccc; 
+    }
+
 
     .form .input-select {
         border: none;
