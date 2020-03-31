@@ -1,4 +1,17 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+
+{% block content %}
+
+<div class="faq">
+    <img src="{{ url_for('static', filename='ginger-cat.png') }}" alt="FAQ">
+
+    <div class="advice">
+        Для навигации по вопросам проведите пальцем влево или вправо ( нажмите и перетащите курсор на ПК )
+    </div>
+
+    <div class="input-button"><p style="transform: translateY(+50%);">ПРИСТУПИТЬ К ТЕСТУ</p></div>
+</div>
+
 <form action="{{ url_for('test') }}" method="post" class="form form-test">
     <div class="siema">
 
@@ -67,6 +80,11 @@
         }
 
         $(document).bind("click", bigBro);
+
+
+        $(".faq .input-button").click(function(){
+            $(".faq").fadeOut(250)
+        })
     })
 </script>
 
