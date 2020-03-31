@@ -1,65 +1,59 @@
-{% extends "base.html" %} 
+{% extends "base.html" %} {% block content %}
+<form action="{{ url_for('test') }}" method="post" class="form form-test">
+    <div class="siema">
 
-{% block content %}
-    <form action="{{ url_for('test') }}" method="post" class="form form-test">
-        <div class="siema">
+        {% for test in tests %}
+        <div>
 
-            {% for test in tests %} 
-                <div>             
-                
-                    <div class="test-question">
-                        {% for question in test.questions %}
-                            <p>{{question}}</p>
-                        {% endfor %} 
-                    </div>            
-                    <hr>
+            <div class="test-question">
+                {% for question in test.questions %}
+                <span style="white-space: pre"><p>{{question}}</p></span> {% endfor %}
+            </div>
+            <hr>
 
-                    <div class="test-answers">
-                        {% for answer in test.answers %}
-                            <label class="test-answer">  
+            <div class="test-answers">
+                {% for answer in test.answers %}
+                <label class="test-answer">  
                                 <input type="radio" name={{test.questions[0][7:10]}} value={{answer.id}}>
                                 <div class="radiocheckmark"></div>
                                 <span>{{answer.value}}</span>
-                            </label><br>
-                        {% endfor %}
-                    </div>        
-                </div>
-            {% endfor %} 
-
+                            </label><br> {% endfor %}
+            </div>
         </div>
+        {% endfor %}
+
+    </div>
 
 
-        <hr>
-        <br>
-        <br>
-
-        {{ form.submit(value="ЗАКОНЧИТЬ ТЕСТИРОВАНИЕ", class="input-button") }}
-    </form>
+    <hr>
+    <br>
+    <br> {{ form.submit(value="ЗАКОНЧИТЬ ТЕСТИРОВАНИЕ", class="input-button") }}
+</form>
 
 
-    <script	src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>      
-    <script src="{{ url_for('static', filename='siema.min.js') }}"></script>
-    <script>
-        const mySiema = new Siema({
-            selector: '.siema',
-            duration: 100,
-            easing: 'ease-out',
-            perPage: 1,
-            startIndex: 0,
-            draggable: true,
-            multipleDrag: true,
-            threshold: 20,
-            loop: false,
-            rtl: false,
-            onInit: () => {},
-            onChange: () => {},
-        });
+<script src="{{ url_for('static', filename='jquery-3.4.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='siema.min.js') }}"></script>
+<script>
+    const mySiema = new Siema({
+        selector: '.siema',
+        duration: 100,
+        easing: 'ease-out',
+        perPage: 1,
+        startIndex: 0,
+        draggable: true,
+        multipleDrag: true,
+        threshold: 20,
+        loop: false,
+        rtl: false,
+        onInit: () => {},
+        onChange: () => {},
+    });
 
-        /*$(document).ready(function(){
-            $(".test-answers input").click(function(){
-                mySiema.next()
-            })
-        })*/
-    </script>
-    
+    /*$(document).ready(function(){
+        $(".test-answers input").click(function(){
+            mySiema.next()
+        })
+    })*/
+</script>
+
 {% endblock %}

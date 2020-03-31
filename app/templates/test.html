@@ -1,6 +1,4 @@
-{% extends "base.html" %} 
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="content-block">
     Результаты теста<br>
     <b>{{ current_user.username }} ({{ otdel }})</b>
@@ -33,7 +31,7 @@
     <br>
 
     <span class="small-font" style="display: block; text-align: justify; width: 100%;">Итоговое количество правильных ответов:<br>{{ pos_result }} из {{ all_result }} или <span style="color:#2c9a40;">{{ part_pos_result }}%</span></span>
-    
+
 </div>
 
 {% endblock %}
