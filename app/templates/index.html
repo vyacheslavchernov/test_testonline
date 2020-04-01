@@ -1,4 +1,18 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+
+{% block content %}
+
+<div class="faq">
+    <img src="{{ url_for('static', filename='ginger-cat.png') }}" alt="FAQ">
+
+    <div class="advice">
+        Для навигации по вопросам проведите пальцем влево или вправо ( нажмите и перетащите курсор на ПК )<br>
+        Если вопрос ( ответы на вопрос ) не помещается на экране полностью, то его можно пролистать вверх с помощью свайпа или колёсиком мыши
+    </div>
+
+    <div class="input-button"><p style="transform: translateY(+50%);">ПРИСТУПИТЬ К ТЕСТУ</p></div>
+</div>
+
 <form action="{{ url_for('test') }}" method="post" class="form form-test">
     <div class="siema">
 
@@ -6,8 +20,10 @@
         <div>
 
             <div class="test-question">
+                
                 {% for question in test.questions %}
-                <span style="white-space: pre"><p>{{question}}</p></span> {% endfor %}
+                    <p style="white-space: pre-wrap;">{{question}}</p> 
+                {% endfor %}
             </div>
             <hr>
 
@@ -27,7 +43,7 @@
 
     <hr>
     <br>
-    <br> {{ form.submit(value="ЗАКОНЧИТЬ ТЕСТИРОВАНИЕ", class="input-button") }}
+    <br> {{ form.submit(value="ЗАКОНЧИТЬ ТЕСТИРОВАНИЕ", class="input-button", disabled="") }}
 </form>
 
 
@@ -49,11 +65,28 @@
         onChange: () => {},
     });
 
-    /*$(document).ready(function(){
-        $(".test-answers input").click(function(){
-            mySiema.next()
+    var slidesSet = new Set()
+
+
+    $(document).ready(function(){
+        function bigBro(e) {
+            
+            if(e.type == 'click' && e.target.localName == 'input') {
+                slidesSet.add(mySiema.currentSlide)
+
+                if (slidesSet.size == 15) {
+                    $(".input-button").removeAttr('disabled')
+                }
+            }
+        }
+
+        $(document).bind("click", bigBro);
+
+
+        $(".faq .input-button").click(function(){
+            $(".faq").fadeOut(250)
         })
-    })*/
+    })
 </script>
 
 {% endblock %}
