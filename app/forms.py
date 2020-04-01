@@ -2,7 +2,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, RadioField
 from wtforms.validators import DataRequired, ValidationError
 from app.models import User
-#from flask_login import current_user
 
 otdels = [
         {'label': 'ОПиР', 'value': 'ОПиР'},
@@ -26,8 +25,6 @@ class RegistrationForm(FlaskForm):
     username = StringField('ФИО Тестируемого', validators=[DataRequired()])
     otdel = RadioField('Выберите отдел', default = '', validators=[DataRequired()],
                     choices=[(otdel['label'], otdel['value']) for otdel in otdels])
-    #otdel = SelectField('Выбирите отдел', default = '', validators=[DataRequired()],
-    #                choices=[(otdel['label'], otdel['value']) for otdel in otdels])
     submit = SubmitField('Зарегистрироваться')
 
     def validate_username(self, username):

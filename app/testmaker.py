@@ -16,19 +16,20 @@ def make_test(user, otdel, seed=0):
 
     # словарь колиества вопросов по темам, в зависимости от вида тестирования
     dep_type = {
-        'ОПиР': {'python': 6, 'ds': 6, 'c#': 0, 'sql': 3},
-        'ОАКБ': {'python': 5, 'ds': 5, 'c#': 0, 'sql': 5},
-        'ОАРБ': {'python': 5, 'ds': 0, 'c#': 0, 'sql': 10},
-        'ОАРБ_c#': {'python': 4, 'ds': 0, 'c#': 3, 'sql': 8},
-        'ОАОП': {'python': 10, 'ds': 2, 'c#': 0, 'sql': 3},
-        'ОАОП_c#': {'python': 5, 'ds': 0, 'c#': 5, 'sql': 5},
-        'ОАКБ_python': {'python': 15, 'ds': 0, 'c#': 0, 'sql': 0},
-        'ОАОП_sql': {'python': 0, 'ds': 0, 'c#': 0, 'sql': 15},
-        'ОАРБ_sql': {'python': 0, 'ds': 0, 'c#': 0, 'sql': 15},
+        'ОПиР': {'python': 6, 'ds': 6, 'c_': 0, 'sql': 3},
+        'ОАКБ': {'python': 5, 'ds': 5, 'c_': 0, 'sql': 5},
+        'ОАРБ': {'python': 5, 'ds': 0, 'c_': 0, 'sql': 10},
+        'ОАРБ_c#': {'python': 0, 'ds': 0, 'c_': 6, 'sql': 9},
+        'ОАОП': {'python': 10, 'ds': 2, 'c_': 0, 'sql': 3},
+        'ОАОП_c#': {'python': 0, 'ds': 0, 'c_': 6, 'sql': 9},
+        'ОАКБ_python': {'python': 15, 'ds': 0, 'c_': 0, 'sql': 0},
+        'ОАОП_sql': {'python': 0, 'ds': 0, 'c_': 0, 'sql': 15},
+        'ОАРБ_sql': {'python': 0, 'ds': 0, 'c_': 0, 'sql': 15},
     }
+
     python_q = df_1.iloc[random.sample(range(0, 15), dep_type[otdel]['python'])]
     ds_q = df_1.iloc[random.sample(range(16, 25), dep_type[otdel]['ds'])]
-    c_q = df_1.iloc[random.sample(range(26, 32), dep_type[otdel]['c#'])]
+    c_q = df_1.iloc[random.sample(range(26, 32), dep_type[otdel]['c_'])]
     sql_q = df_1.iloc[random.sample(range(33, 48), dep_type[otdel]['sql'])]
     all_data = [python_q, ds_q, c_q, sql_q]
     tests = []
