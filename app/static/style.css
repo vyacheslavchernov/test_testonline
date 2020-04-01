@@ -309,16 +309,20 @@
     }
 
     .faq img {
-        width: 70%;
+        position: fixed;
+
+        height: 30vh;
         margin-left: 50%;
-        margin-top: 3%;
         transform: translateX(-50%);
     }
 
     .faq .advice {
+        position: fixed;
+        top: 32vh;
+
         width: 70%;
+        height: 30vh;
         margin-left: 50%;
-        margin-top: 3%;
         transform: translateX(-50%);
 
         background-color: #eee;
@@ -328,10 +332,14 @@
 
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-align: justify;
+
+        overflow-y: scroll;
     }
 
     .faq .input-button {
-        margin-top: 10%;
+        position: fixed;
+        top: 75vh;
+
         margin-left: 50%;
         transform: translateX(-50%);
 
