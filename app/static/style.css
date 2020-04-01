@@ -311,14 +311,14 @@
     .faq img {
         width: 70%;
         margin-left: 50%;
-        margin-top: 25%;
+        margin-top: 3%;
         transform: translateX(-50%);
     }
 
     .faq .advice {
         width: 70%;
         margin-left: 50%;
-        margin-top: 5%;
+        margin-top: 3%;
         transform: translateX(-50%);
 
         background-color: #eee;
