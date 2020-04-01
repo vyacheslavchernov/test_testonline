@@ -318,10 +318,10 @@
 
     .faq .advice {
         position: fixed;
-        top: 10vh;
+        top: 35vh;
 
         width: 70%;
-        height: 10vh;
+        height: 25vh;
         margin-left: 50%;
         transform: translateX(-50%);
 
@@ -338,7 +338,7 @@
 
     .faq .input-button {
         position: fixed;
-        bottom: 25vh;
+        bottom: 10vh;
 
         margin-left: 50%;
         transform: translateX(-50%);
